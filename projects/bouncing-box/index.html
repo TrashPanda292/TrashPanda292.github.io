@@ -8,13 +8,13 @@
 		.box {
 			width: 70px;
 			height: 70px;
-			background-color: teal;
+			background-image: linear-gradient( red, black);
 			font-size: 300%;
 			text-align: center;
 			display: block;
 			position: absolute;
-			top: 100px;
-			left: 0px;  /* <--- Change me! */
+			top: 134px;
+			left: 20px;  /* <--- Change me! */
 		}
 		.board{
 			height: 100vh;
@@ -61,18 +61,25 @@
 			//////////////////////////////////////////////////////////////////
 			
 			// TODO 2 - Variable declarations 
-			
+			var locationX = 0;  // this variabke remebers where the box is - tells it where to go
+			var points = 0;
+			var lightningMcQueen = 20;
 
 			
 			/* 
-			This Function will be called 20 times/second. Each time it is called,
+			This Function will be called 20 times/second.each time it is called,
 			it should move the Box to a new location. If the box drifts off the screen
 			turn it around! 
 			*/
 			function update() {
-				
+				moveBoxTo (locationX)
+				locationX = locationX + lightningMcQueen;
 
-			};
+			}
+
+
+
+			
 
 			/* 
 			This Function will be called each time the box is clicked. Each time it is called,
@@ -80,7 +87,8 @@
 			the left side of the screen.
 			*/
 			function handleBoxClick() {
-				
+				changeBoxText(points = points + 1)
+			
 
 
 			};
