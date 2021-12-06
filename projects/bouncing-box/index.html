@@ -1,48 +1,52 @@
 <!DOCTYPE html>
 <html>
+
 <head>
 	<meta charset="utf-8">
 	<title>Bouncing Box</title>
 	<script src="jquery.min.js"></script>
 	<style>
 		.box {
-			width: 70px;
-			height: 70px;
-			background-image: linear-gradient( red, black);
-			font-size: 300%;
+			width: 70x;
+			height: 70px; 
+			background-color: red; 
+			font-size: 100%;
 			text-align: center;
 			display: block;
 			position: absolute;
-			top: 134px;
-			left: 20px;  /* <--- Change me! */
+			top: 120px;
+			left: 20px;
 		}
-		.board{
+		
+
+		.board {
 			height: 100vh;
 		}
 	</style>
 	<!-- 	<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script> -->
 
 </head>
+
 <body class="board">
 	<!-- HTML for the box -->
-	<div class="box">?</div>
+	<div class="box">Click Me!</div>
 
 	<script>
-		(function(){
+		(function () {
 			'use strict'
 			/* global jQuery */
 
 			//////////////////////////////////////////////////////////////////
 			/////////////////// SETUP DO NOT DELETE //////////////////////////
 			//////////////////////////////////////////////////////////////////
-			
+
 			var box = jQuery('.box');	// reference to the HTML .box element
 			var board = jQuery('.board');	// reference to the HTML .board element
 			var boardWidth = board.width();	// the maximum X-Coordinate of the screen
 
 			// Every 50 milliseconds, call the update Function (see below)
 			setInterval(update, 50);
-			
+
 			// Every time the box is clicked, call the handleBoxClick Function (see below)
 			box.on('click', handleBoxClick);
 
@@ -59,27 +63,36 @@
 			//////////////////////////////////////////////////////////////////
 			/////////////////// YOUR CODE BELOW HERE /////////////////////////
 			//////////////////////////////////////////////////////////////////
-			
+
 			// TODO 2 - Variable declarations 
 			var locationX = 0;  // this variabke remebers where the box is - tells it where to go
 			var points = 0;
-			var lightningMcQueen = 20;
+			var lightningMcQueen = 4;
 
-			
+
 			/* 
 			This Function will be called 20 times/second.each time it is called,
 			it should move the Box to a new location. If the box drifts off the screen
 			turn it around! 
 			*/
 			function update() {
-				moveBoxTo (locationX)
+				moveBoxTo(locationX)
 				locationX = locationX + lightningMcQueen;
+
+				if (locationX > boardWidth) {
+					// console.log (lightningMcQueen);
+					lightningMcQueen = lightningMcQueen * -1;
+					// console.log (lightningMcQueen);
+
+				} else if (locationX < 0) {
+					lightningMcQueen = lightningMcQueen * -1;
+				}
 
 			}
 
 
 
-			
+
 
 			/* 
 			This Function will be called each time the box is clicked. Each time it is called,
@@ -88,11 +101,14 @@
 			*/
 			function handleBoxClick() {
 				changeBoxText(points = points + 1)
-			
+				lightningMcQueen = lightningMcQueen + 3;
+				locationX = 0
+
 
 
 			};
 		})();
 	</script>
 </body>
+
 </html>
