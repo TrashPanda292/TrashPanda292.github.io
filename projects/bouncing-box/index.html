@@ -101,10 +101,13 @@
 			*/
 			function handleBoxClick() {
 				changeBoxText(points = points + 1)
-				lightningMcQueen = lightningMcQueen + 3;
 				locationX = 0
 
-
+				if (lightningMcQueen >= 0) {
+					lightningMcQueen = lightningMcQueen + 3
+				} else if (lightningMcQueen < 0) {
+					lightningMcQueen = lightningMcQueen - 3
+				}
 
 			};
 		})();
