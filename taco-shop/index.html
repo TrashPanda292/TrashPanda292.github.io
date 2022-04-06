@@ -1,75 +1,90 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title> Raccoon Toes</title>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-        <style>
-            #menu, #take-order {
-                display: flex;
-                flex-direction: row;
-            }
 
-            #take-order > p {
-                padding-right: 10px;
-            }
+<head>
+    <title> Raccoon Toes</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <style>
+        #menu,
+        #take-order {
+            display: flex;
+            flex-direction: row;
+        }
 
-            .menu-item {
-                border: 3px solid gray;
-            }
+        #take-order>p {
+            padding-right: 10px;
+        }
 
-            .menu-item > h4,
-            .menu-item > img {
-                padding: 10px;
-                padding-bottom: 5px;
-            }
+        .menu-item {
+            border: 3px solid gray;
+        }
 
-            img {
-                width: 250px;
-            }
-         
-        </style>
-    </head>
-    <body>
-        <div id="all-contents">
-            <nav>
-                <h1>Mystery Food</h1>
-                <div id="take-order">
-                    <p>When you're ready to place your order, click here: <em>Every order comes with random drink. We only have Mr. Pibb right now.</em></p>
-                    <button>Place Order</button>
+        .menu-item>h4,
+        .menu-item>img {
+            padding: 10px;
+            padding-bottom: 5px;
+        }
+
+        img {
+            width: 250px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="all-contents">
+        <nav>
+            <h1>Mystery Food</h1>
+            <div id="take-order">
+                <p>When you're ready to place your order, click here: <em>Every order comes with random drink. We only
+                        have Mr. Pibb right now.</em></p>
+                <button>Place Order</button>
+            </div>
+        </nav>
+        <main>
+            <h3>Menu</h3>
+            <div id="menu">
+                <div id="food" class="menu-item">
+                    <h4> #1 - Worse Than Taco-Bell</h4>
+                    <img
+                        src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/46/Question_mark_%28black%29.svg/800px-Question_mark_%28black%29.svg.png">
+                    <h4>Have fun on the toilet with this one. <em>(Ours are broken.) 7.99</em></h4>
                 </div>
-            </nav>
-            <main>
-                <h3>Menu</h3>
-                <div id="menu">
-                    <div id="food" class="menu-item">
-                        <h4> #1 - Worse Than Taco-Bell</h4>
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/46/Question_mark_%28black%29.svg/800px-Question_mark_%28black%29.svg.png">
-                        <h4>Have fun on the toilet with this one. <em>(Ours are broken.) 7.99</em></h4>
-                    </div>
-                    <div id="food" class="menu-item">
-                        <h4>#2 - Chefs Choice</h4>
-                        <img src="https://images.fineartamerica.com/images-medium-large-5/neon-blue-question-mark-ikon-ikon-images.jpg">
-                        <h4>Beware no one knows whats this is gonna be. <em>8.99</em></h4>
-                    </div>
+                <div id="food" class="menu-item">
+                    <h4>#2 - Chefs Choice</h4>
+                    <img
+                        src="https://images.fineartamerica.com/images-medium-large-5/neon-blue-question-mark-ikon-ikon-images.jpg">
+                    <h4>Beware no one knows whats this is gonna be. <em>8.99</em></h4>
                 </div>
-            </main>
-        </div>
-        <script>
-            $('button').on('click', orderNow);
-            function orderNow(){
-                var total = 0
-                var orderStuf = prompt('Hurry up and order I dont like you.')
-                if (orderStuf === '1') { 
-                    total += 7.99
-                    alert("I wish you luck and hope you have toliet paper.");
-                } else if (orderStuf === '2'){
-                total += 8.99
-                alert ("You are a brave soul I wish you the best of luck.");
-            }  else {
-                alert ("I will call security if you do something dumb again... or I will take matters into my own hands.")
+            </div>
+        </main>
+    </div>
+    <script>
+        $('button').on('click', orderNow);
+        function orderNow() {
+            var total = 0
+            var orderStuf = prompt('Hurry up and order I dont like you.')
+            if (orderStuf === '1') {
+                total += 7.99;
+                alert("I wish you luck and hope you have toliet paper.");
+                var napkin = prompt('You want a napkin dude?');
+                if (napkin === 'Yes', 'yes') {
+                    alert('Ok but its gonna cost you.')
+                    total += ' b   and a human soul'}
+                } else if (orderStuf === '2') {
+                    total += 8.99;
+                    alert("You are a brave soul I wish you the best of luck.")
+                    var napkin = prompt('You want a napkin dude?');
+                    if (napkin === 'Yes', 'yes') {
+                        alert('Ok but its gonna cost you.')
+                        total += ' and a human soul';
+                    } else {
+                        alert("I will call security if you do something dumb again... or I will take matters into my own hands.")
+                    }
+                }
+                alert('your total is ' + total + ' pay up or get 360 no scoped.');
             }
-            alert ('your total is ' + total + ' pay up or get 360 no scoped.')
-        }          
-        </script>
-    </body>
+    </script>
+</body>
+
 </html>
